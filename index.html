@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>OffsetCrypt</title>
+	<title>Wordwish</title>
 
 	<style>
 		html, body{
@@ -45,7 +45,7 @@
 		form .result{
 			margin-top:  1rem;
 			margin-bottom:  0rem;
-			text-align:  left;
+			text-align:  center;
 			word-break: break-all;
 		}
 
@@ -58,44 +58,22 @@
 			border-radius:  7px;
 			margin-right:  1rem;
 		}
-
-		input.number{
-			width:  50px;
-		}
-
-		input.message{
-			width:  350px;
-			max-width:  100%;
-		}
 	</style>
 </head>
 <body>
 	<div class="content">
-		<h1>🧭 OffsetCrypt</h1>
-		<p>A JS tool to encrypt / parse message base on a simple character shifting system.</p>
+		<h1>🥪 Wordwish</h1>
+		<p>A JS tool to randomely generate slug based on arrays of word.</p>
 		<form action="#" class="crypt">
-			<p class="form-title">Crypt</p>
-			<input type="text" class="message" placeholder="Type something"><input type="submit" value="Crypt">
-			<p class="result crypt"></p>
-		</form>
-		<form action="#" class="parse">
-			<p class="form-title">Parse</p>
-			<input type="text" class="message" placeholder="Type something"><input type="submit" value="Parse">
-			<p class="result parse"></p>
+			<p class="form-title">Generate a random slug</p><input type="submit" value="Generate">
+			<p class="result wordwish"></p>
 		</form>
 	</div>
-	<script src="OffsetCrypt.js"></script>
+	<script src="Wordwish.js"></script>
 	<script>
 		document.querySelectorAll('form').forEach( (element, index) => {
 			element.addEventListener('submit', (e) => {
-				let message = element.querySelector('.message').value;
-
-				if(element.classList.value.indexOf('crypt') > -1){
-					document.querySelector('.result.crypt').innerText = OffsetCrypt.crypt(message);
-				}
-				else if(element.classList.value.indexOf('parse') > -1){
-					document.querySelector('.result.parse').innerText = OffsetCrypt.parse(message);
-				}
+				document.querySelector('.result.wordwish').innerText = Wordwish.generate();
 				e.preventDefault();
 			});
 		});
